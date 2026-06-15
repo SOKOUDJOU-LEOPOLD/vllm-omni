@@ -1,3 +1,10 @@
+import sys
+from pathlib import Path
+
+# Make sure the repo root (containing the `vllm_omni` package) is importable,
+# regardless of which directory this script is launched from.
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 from vllm_omni.diffusion.registry import DiffusionModelRegistry, _DIFFUSION_MODELS
 
 print("HiDreamO1ImagePipeline" in _DIFFUSION_MODELS)
